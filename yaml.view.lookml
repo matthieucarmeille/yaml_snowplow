@@ -1,12 +1,12 @@
 - explore: funnel_explorer
   always_filter:
     event_time: '30 days'
-    
+
 - view: funnel_explorer
       # In this query, we retrieve, for each session, the first and last instance of each event in our sequence. If, 
       # for each event, its first instance occurs before the last instance of the next event in the sequence, then     
       # that is considered a completion of the sequence.
-- derived_table:
+  derived_table:
     sql: |
       SELECT sessions.unique_session_id as unique_session_id
         , events.user_id
